@@ -49,6 +49,8 @@ Run tests:
 
 ### Docker (No Local JDK Required)
 
+**New to Docker?** Check out our [simple explanation](docs/Docker-ELI10.md) that explains Docker like you're 10 years old!
+
 Build the image:
 ```bash
 docker build -t java26-showcase .
