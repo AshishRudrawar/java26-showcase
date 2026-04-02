@@ -1,0 +1,25 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build Docker image
+        run: |
+          docker build -t java26-showcase:ci .
+      - name: Run String Template Demo
+        run: |
+          docker run --rm java26-showcase:ci
+      - name: Run Virtual Thread Demo
+        run: |
+          docker run --rm java26-showcase:ci ./gradlew --no-daemon run --args='virtual-thread'

@@ -24,6 +24,26 @@ cd java26-showcase
 - `./gradlew run --args='string-template'`
 - `./gradlew run --args='virtual-thread'`
 
+## Docker (no local JDK needed)
+
+Build:
+
+```bash
+docker build -t java26-showcase .
+```
+
+Run (default string-template demo):
+
+```bash
+docker run --rm java26-showcase
+```
+
+Run a specific demo:
+
+```bash
+docker run --rm java26-showcase ./gradlew --no-daemon run --args='virtual-thread'
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
