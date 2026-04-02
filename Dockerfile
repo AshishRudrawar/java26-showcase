@@ -1,4 +1,4 @@
-FROM eclipse-temurin:26-jdk
+FROM openjdk:26-jdk
 
 WORKDIR /app
 
