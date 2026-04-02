@@ -1,6 +1,6 @@
 # Java 26 Showcase
 
-`java26-showcase` is a sample repository for demonstrating key Java 26 language and library features.
+`java26-showcase` is a sample repository for demonstrating key Java language and library features, with a focus on modern Java development practices. This project showcases stable features that work across Java versions while preparing for Java 26 enhancements.
 
 ## Setup
 
@@ -12,41 +12,91 @@ cd java26-showcase
 ./gradlew test
 ```
 
-## Features included
+## Features Demonstrated
 
-- String templates (preview)
-- pattern matching enhancements
-- enhanced virtual threads
-- vector API / foreign function improvements
+This project includes three comprehensive demos showcasing modern Java features:
+
+### 1. Text Block Literals & String Formatting
+- **Demo**: `StringTemplateDemo`
+- **Features**: Multi-line strings, formatted output
+- **Documentation**: [docs/StringTemplateDemo.md](docs/StringTemplateDemo.md)
+
+### 2. Virtual Threads
+- **Demo**: `VirtualThreadDemo`
+- **Features**: Lightweight concurrency, high-throughput applications
+- **Documentation**: [docs/VirtualThreadDemo.md](docs/VirtualThreadDemo.md)
+
+### 3. Pattern Matching in Switch
+- **Demo**: `PatternSwitchDemo`
+- **Features**: Type-safe conditional logic, expressive switch expressions
+- **Documentation**: [docs/PatternSwitchDemo.md](docs/PatternSwitchDemo.md)
 
 ## Usage
 
-- `./gradlew run --args='string-template'`
-- `./gradlew run --args='virtual-thread'`
+### Local Development
 
-## Docker (no local JDK needed)
+Run individual demos:
+```bash
+./gradlew runStringTemplate    # Text blocks demo
+./gradlew runVirtualThread     # Virtual threads demo
+./gradlew runPatternSwitch     # Pattern matching demo
+```
 
-Build:
+Run tests:
+```bash
+./gradlew test
+```
 
+### Docker (No Local JDK Required)
+
+Build the image:
 ```bash
 docker build -t java26-showcase .
 ```
 
-Run (default string-template demo):
-
+Run demos:
 ```bash
+# String Template Demo (default)
 docker run --rm java26-showcase
+
+# Virtual Thread Demo
+docker run --rm java26-showcase ./gradlew --no-daemon runVirtualThread
+
+# Pattern Switch Demo
+docker run --rm java26-showcase ./gradlew --no-daemon runPatternSwitch
 ```
 
-Run a specific demo:
+## Project Structure
 
-```bash
-docker run --rm java26-showcase ./gradlew --no-daemon run --args='virtual-thread'
 ```
+java26-showcase/
+├── src/main/java/com/example/java26/
+│   ├── StringTemplateDemo.java     # Text blocks demonstration
+│   ├── VirtualThreadDemo.java      # Virtual threads showcase
+│   └── PatternSwitchDemo.java      # Pattern matching example
+├── src/test/java/com/example/java26/
+│   └── SampleTests.java            # Basic unit tests
+├── docs/                           # Detailed documentation
+│   ├── StringTemplateDemo.md
+│   ├── VirtualThreadDemo.md
+│   └── PatternSwitchDemo.md
+├── Dockerfile                      # Containerized build
+└── build.gradle.kts               # Gradle build configuration
+```
+
+## Java Version Compatibility
+
+- **Minimum**: Java 21 (for virtual threads)
+- **Recommended**: Java 26 (full feature support)
+- **CI/CD**: Tested with Java 26 in GitHub Actions
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
 ## License
 
