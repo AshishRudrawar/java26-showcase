@@ -1,4 +1,14 @@
-FROM openjdk:26-jdk
+FROM ubuntu:24.04
+
+# Install OpenJDK 26
+RUN apt-get update && \
+    apt-get install -y wget gnupg && \
+    wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add - && \
+    echo "deb https://packages.adoptium.net/artifactory/deb focal main" | tee /etc/apt/sources.list.d/adoptium.list && \
+    apt-get update && \
+    apt-get install -y temurin-26-jdk && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
