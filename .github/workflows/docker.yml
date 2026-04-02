@@ -23,7 +23,7 @@ jobs:
           docker build -t java26-showcase:ci .
       - name: Run String Template Demo
         run: |
-          docker run --rm java26-showcase:ci ./gradlew --no-daemon run --args='string-template'
+          docker run --rm java26-showcase:ci ./gradlew --no-daemon runStringTemplate
       - name: Run Virtual Thread Demo
         run: |
-          docker run --rm java26-showcase:ci ./gradlew --no-daemon run --args='virtual-thread'
+          docker run --rm java26-showcase:ci ./gradlew --no-daemon runVirtualThread

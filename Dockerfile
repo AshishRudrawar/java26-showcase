@@ -10,10 +10,14 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Set JAVA_HOME for Gradle
+ENV JAVA_HOME=/usr/lib/jvm/temurin-26-jdk-amd64
+
 WORKDIR /app
 
 COPY . /app
 
+# Run tests with Java 26 preview features enabled
 RUN ./gradlew test --no-daemon
 
-CMD ["gradle", "run", "--no-daemon", "--args=\"string-template\""]
+CMD ["./gradlew", "runStringTemplate", "--no-daemon"]
