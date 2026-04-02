@@ -1,9 +1,9 @@
-FROM gradle:9.4.1-jdk26
+FROM eclipse-temurin:26-jdk
 
 WORKDIR /app
 
 COPY . /app
 
-RUN gradle test --no-daemon
+RUN ./gradlew test --no-daemon
 
-CMD ["gradle", "run", "--no-daemon", "--args=\"string-template\""]
+CMD ["./gradlew", "run", "--no-daemon", "--args=\"string-template\""]
